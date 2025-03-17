@@ -18,9 +18,7 @@ AR = ar rcs
 
 
 Free_DIR := ../ft_free 
-Free = $(Free_)/ft_free.a
-
-
+Free = $(Free_DIR)/ft_free.a
 
 
 SRCS = ft_atoi.c ft_isdigit.c ft_memmove.c ft_split.c ft_strlcat.c ft_strrchr.c \
@@ -67,11 +65,11 @@ git_free:
 
 
 $(NAME): $(OBJECT)
-	@$(AR) $@ $(Free) $^
+	@$(AR) $@ ../ft_free/ft_free.a $^
 	@rm -f $(COUNT_FILE)
 
 bonus: $(OBJECT_B) $(NAME)
-	@ar rcs $(NAME) $(Free) $^
+	@ar rcs $(NAME) ../ft_free/ft_free.a $^
 	@rm -f $(COUNT_FILE)
 	
 
