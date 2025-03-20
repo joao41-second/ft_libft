@@ -1,14 +1,14 @@
-# **************************************************************************** #
+#******************************************************************************#
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jperpect <jperpect@student.42.fr>          +#+  +:+       +#+         #
+#    By: rerodrig <rerodrig@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/03 06:17:31 by jperpect          #+#    #+#              #
-#    Updated: 2025/03/14 22:37:43 by jperpct          ###   ########.fr        #
+#    Updated: 2025/03/20 11:58:12 by rerodrig         ###   ########.fr        #
 #                                                                              #
-# **************************************************************************** #
+#******************************************************************************#
 
 FLGS = -Wall -Wextra -Werror
 
@@ -27,7 +27,7 @@ SRCS = ft_atoi.c ft_isdigit.c ft_memmove.c ft_split.c ft_strlcat.c ft_strrchr.c 
  ft_isalnum.c ft_memchr.c ft_putendl_fd.c ft_strdup.c ft_strmapi.c ft_tolower.c \
  ft_isalpha.c ft_memcmp.c ft_putnbr_fd.c ft_striteri.c ft_strncmp.c ft_toupper.c \
  ft_isascii.c ft_memcpy.c ft_putstr_fd.c ft_strjoin.c ft_strnstr.c ft_str_btis.c ft_atol.c \
- ft_verfic_char_list.c  \
+ ft_verfic_char_list.c ft_atof.c ft_isspace.c \
  
 
 BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c \
