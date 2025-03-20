@@ -5,44 +5,66 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rerodrig <rerodrig@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/07 11:11:35 by rerodrig          #+#    #+#             */
-/*   Updated: 2025/03/20 11:27:23 by rerodrig         ###   ########.fr       */
+/*   Created: 2025/03/20 12:10:57 by rerodrig          #+#    #+#             */
+/*   Updated: 2025/03/20 12:15:08 by rerodrig         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
 #include "./libft.h"
 
-double ft_atof(const char *str, char **endptr)
+static double	parse_fraction(const char *str, int *i)
 {
-    double result = 0.0;
-    double fraction = 0.1;
-    int sign = 1;
-    int i = 0;
+	double	fraction;
+	double	result;
 
-    while (ft_isspace(str[i]))
-        i++;
-    if (str[i] == '-' || str[i] == '+')
-    {
-        if (str[i] == '-')
-            sign = -1;
-        i++;
-    }
-    while (ft_isdigit(str[i]))
-    {
-        result = result * 10.0 + (str[i] - '0');
-        i++;
-    }
-    if (str[i] == '.')
-    {
-        i++;
-        while (ft_isdigit(str[i]))
-        {
-            result += fraction * (str[i] - '0');
-            fraction *= 0.1;
-            i++;
-        }
-    }
-    if (endptr)
-        *endptr = (char *)&str[i];
-    return (result * sign);
+	fraction = 0.1;
+	result = 0.0;
+	if (str[*i] == '.')
+	{
+		(*i)++;
+		while (ft_isdigit(str[*i]))
+		{
+			result += fraction * (str[*i] - '0');
+			fraction *= 0.1;
+			(*i)++;
+		}
+	}
+	return (result);
+}
+
+static double	parse_integer(const char *str, int *i)
+{
+	double	result;
+
+	result = 0.0;
+	while (ft_isdigit(str[*i]))
+	{
+		result = result * 10.0 + (str[*i] - '0');
+		(*i)++;
+	}
+	return (result);
+}
+
+double	ft_atof(const char *str, char **endptr)
+{
+	int		i;
+	int		sign;
+	double	result;
+
+	result = 0.0;
+	sign = 1;
+	i = 0;
+	while (ft_isspace(str[i]))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			sign = -1;
+		i++;
+	}
+	result = parse_integer(str, &i);
+	result += parse_fraction(str, &i);
+	if (endptr)
+		*endptr = (char *)&str[i];
+	return (result * sign);
 }
