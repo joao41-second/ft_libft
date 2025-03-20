@@ -1,14 +1,14 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpires-c <rpires-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rerodrig <rerodrig@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 13:36:29 by jperpect          #+#    #+#             */
-/*   Updated: 2024/10/17 16:05:33 by rpires-c         ###   ########.fr       */
+/*   Updated: 2025/03/20 11:50:16 by rerodrig         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 # define LIBFT_H
 #ifdef LIBFT_H
@@ -20,6 +20,9 @@
 # include <strings.h>
 # include <unistd.h>
 # include "../ft_free/ft_free.h"
+
+int                      ft_isspace(char c);
+double                   ft_atof(const char *str, char **endptr);
 
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);
